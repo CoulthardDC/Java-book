@@ -1,2 +1,3 @@
 # JAVA-BOOK
-* ## [Модификаторы доступа](./access_modifiers.md)
+* ## [Модификаторы доступа(`public`, `private`, `protected`, `default` )](./access_modifiers.md)
+* ## [Модификатор `static`](./static_modifier.md)
