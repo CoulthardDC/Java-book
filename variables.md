@@ -136,6 +136,69 @@ class Dog {
 
 Таким образом управление объектом осуществляется с помощью ссылочной переменной.
 
+## Значения по умолчанию.
+
+Если указать тип переменной, но забыть присвоить ей значение, то Java сообщит об ошибке.
+
+```java
+public class Praktikum {
+    public static void main(String[] args) {
+        int justVariable; // Ошибка! Переменная не инициализирована
+        System.out.println(justVariable); 
+    }
+}
+```
+
+Однако, если не проинициализировать значения полей внутри класса, то такой ошибки не произойдет. Полям будет
+присвоено __значение по умолчанию__.
+
+| Тип переменной       | Значение |
+|----------------------|:--------:|
+| byte                 |    0     |
+| short                |    0     |
+| int                  |    0     |
+| long                 |    0     |
+| float                |   0.0    |
+| double               |   0.0    |
+| char                 |  \u0000  |
+| boolean              |  false   |
+| Класс(ссылочный тип) |   null   |
+
+ Значение по умолчанию присваиваются полям и в тех случаях, когда объекты создаются с помощью конструктора
+с параметрами.
+
+```java
+class Hamster {
+    String name;   // Имя
+    int age;       // Возраст
+    int weight;    // Вес в граммах
+    String color;  // Цвет
+
+    // среди параметров нет цвета
+    Hamster(String hamsterName, int hamsterAge, int hamsterWeight) {
+        name = hamsterName;
+        age = hamsterAge;
+        weight = hamsterWeight;
+        // отсутствует строка с инициализацией поля color
+    }
+}
+
+public class Praktikum {
+    public static void main(String[] args) {
+        Hamster homa = new Hamster("Хома", 2, 10);
+        System.out.println("Цвет хомяка: " + homa.color); // пытаемся получить цвет
+    }
+}
+```
+
+Вывод:
+
+```
+Цвет хомяка: null
+```
+
+
+
 # Источники
 1. Ссылочные типы данных в Java // JavaRush URL: https://javarush.ru/groups/posts/2642-ssihlochnihe-tipih-dannihkh-v-java.
 2. Переменные в Java и константы // JavaRush URL: https://javarush.ru/groups/posts/peremennie-v-java.
